@@ -1,19 +1,16 @@
-# Fire Detection Using Vision
+# 🔍 Real-Time Fire Perception (ROS 2 & OpenCV)
 
-## Problem Statement
-Early detection of fire is critical for safety in industrial and indoor environments.
-This project focuses on detecting fire using a camera-based vision system.
+This package implements a computer vision pipeline to detect and track fire signatures using color segmentation and image moments.
 
-## System Overview
-Camera → Image Processing → Fire Detection Logic → Alert / Actuation
+## 🛠 Key Features
+- **HSV Segmentation:** Robustly isolates fire-colored pixels, minimizing interference from ambient lighting.
+- **Dynamic Tuning:** Integrated OpenCV trackbars for real-time threshold calibration.
+- **ROS 2 Integration:** Uses `cv_bridge` to convert sensor data for real-time processing.
+- **Centroid Tracking:** Calculates the (X, Y) coordinates of the fire for autonomous navigation.
 
-## Algorithm Overview
-(To be updated)
-
-## Results
-(To be updated)
-
-## Future Improvements
-- Robust detection under varying lighting
-- Integration with ROS2
-
+## 🚀 How to Run
+1. Source your ROS 2 Humble environment.
+2. Run the launch file:
+   ```bash
+   ros2 launch my_robot_controller fire_detector_launch.py
+   ```
