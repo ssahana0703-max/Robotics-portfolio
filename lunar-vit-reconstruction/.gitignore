@@ -1,0 +1,17 @@
+runs/lunar_ae/visuals/recon_epoch_0040.png
+runs/lunar_ae/visuals/recon_epoch_0005.png
+runs/lunar_ae/visuals/recon_epoch_0010.png
+runs/lunar_ae/visuals/recon_epoch_0015.png
+runs/lunar_ae/visuals/recon_epoch_0020.png
+runs/lunar_ae/visuals/recon_epoch_0025.png
+runs/lunar_ae/visuals/recon_epoch_0030.png
+runs/lunar_ae/visuals/recon_epoch_0035.png
+runs/lunar_ae/checkpoints/best.pt
+runs/lunar_ae/checkpoints/epoch_0010.pt
+runs/lunar_ae/checkpoints/epoch_0020.pt
+runs/lunar_ae/checkpoints/epoch_0030.pt
+runs/lunar_ae/checkpoints/epoch_0040.pt
+__pycache__/lunarGeoData.cpython-312.pyc
+__pycache__/lunarGeoData.cpython-314.pyc
+__pycache__/model.cpython-312.pyc
+__pycache__/model.cpython-314.pyc
