@@ -186,28 +186,50 @@ with torch.no_grad():
 
 ## Evaluation & Results
 
-Evaluation is run on a held-out test split (15% of all patches). Three complementary metrics are reported:
+Evaluation is run on a held-out test split (15% of 361,675 total patches = **54,252 test patches**).
 
 | Metric | Description |
 |---|---|
 | **PSNR (dB)** | Pixel-level reconstruction fidelity |
-| **SSIM** | Structural similarity |
-| **Boundary F1** | Precision/recall of reconstructed geological class boundaries |
+| **Boundary F1** | Harmonic mean of precision & recall on geological class boundaries |
+| **Boundary Precision** | Fraction of predicted boundary pixels that are true boundaries |
+| **Boundary Recall** | Fraction of true boundary pixels correctly predicted |
 
 Boundary F1 is the primary structural metric — it measures whether the model correctly reconstructs geological region edges, not just average colour.
 
 ### Results
 
-| Checkpoint | PSNR ↑ |  | Boundary F1 ↑ | MAE ↓ |
-|---|---|---|---|---|
-| `best.pt` | — | — | — | — |
+| Checkpoint | PSNR ↑ | Boundary F1 ↑ | Boundary Precision ↑ | Boundary Recall ↑ | MAE ↓ |
+|---|---|---|---|---|---|
+| `best.pt` | 61.71 dB ± 7.16 | 0.7634 ± 0.4187 | 0.7596 ± 0.4174 | 0.7677 ± 0.4207 | 0.1017 ± 0.0706 |
 
-> Fill in values from `logs/val_metrics.json` after running `validate.py`.
+
+### Reconstruction Grid
+
+*Top row: Original — Middle row: Reconstruction — Bottom row: Absolute error heatmap*
+
+![Reconstruction Grid](docs/val_grid.png)
+
+### Side-by-side Comparison
+
+![Final Reconstruction](docs/recon_final_test.png)
+
+### Per-channel Scatter (Predicted vs Ground Truth)
+
+Points tightly along the diagonal indicate near-perfect pixel-level colour reproduction across all three channels.
+
+![Channel Scatter](docs/val_scatter.png)
+
+### Latent Space PCA — Coloured by Geological Class
+
+Each point represents one 256×256 patch; colour = dominant geological class. Tight same-colour clusters confirm the encoder has learned geology-aware, not just brightness-aware, representations.
+
+![Latent Space PCA](docs/latent_pca_geo.png)
 
 **Boundary F1 interpretation:**
 - `> 0.70` ✅ Boundaries well reconstructed — encoder learned spatial structure
-- `0.40–0.70` ⚠️ Partial — boundaries detected but displaced or blurred
-- `< 0.40` ❌ Poor — model ignoring boundary structure (colour shortcut likely)
+- `0.40–0.70` Partial — boundaries detected but displaced or blurred
+- `< 0.40`  Poor — model ignoring boundary structure (colour shortcut likely)
 
 ---
 
