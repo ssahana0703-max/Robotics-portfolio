@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Feb  4 19:40:26 2026
-
-@author: mpmoe
-"""
 
 import casadi as ca
 import numpy as np
@@ -112,6 +106,7 @@ x_guess=opt_x(np.zeros(opt_x.shape))
 # ============================================================
 
 def simulate(use_ekf=True):
+
     T_sim = 2.
     steps = int(T_sim / p["dt"])
     curr_true = np.array([0., 0., p["tl_true"]])

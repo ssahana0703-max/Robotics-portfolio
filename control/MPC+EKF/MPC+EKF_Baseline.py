@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Feb  4 19:11:37 2026
-
-@author: mpmoe
-"""
 
 import casadi as ca
 import numpy as np
