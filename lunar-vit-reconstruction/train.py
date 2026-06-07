@@ -26,13 +26,13 @@ def parse_args():
     # Data
     p.add_argument("--root",         type=str, required=True,
                    help="Root dir passed to LunarGeoData (contains UnifiedGeoMap/ and wac/)")
-    p.add_argument("--patch_size",   type=int, default=256,
+    p.add_argument("--patch_size",   type=int, default=512,
                    help="Patch size used by LunarGeoData (default 256)")
-    p.add_argument("--stride",       type=int, default=128,
+    p.add_argument("--stride",       type=int, default=256,
                    help="Stride used by LunarGeoData (default 128, gives overlapping patches)")
  
     # Model
-    p.add_argument("--enc_patch",    type=int, default=16,
+    p.add_argument("--enc_patch",    type=int, default=32,
                    help="ViT token size inside each 256-px tile (default 16)")
     p.add_argument("--hidden_dim",   type=int, default=512)
     p.add_argument("--nheads",       type=int, default=8)
