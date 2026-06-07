@@ -12,7 +12,7 @@ p = {
     'tl_true': 1.47,
     'dt': 0.05
 }
-np.random.seed(42)
+np.random.seed(42) #for reproducibility
 nx = 3; nu = 1
 x_sym = ca.MX.sym('x', nx)
 u_sym = ca.MX.sym('u')
